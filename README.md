@@ -4,6 +4,8 @@ The repository provides a step-by-step guide for training a PointPillars 3D obje
 
 To clone the repository:
 ```bash
+# Clone the repository to $HOME path
+cd ~
 git clone git@github.com:MengWoods/tao-lidar-pointpillars-training-guide.git
 # Clone the tao-toolkit submodule
 cd tao-lidar-pointpillars-training-guide
@@ -52,5 +54,34 @@ Recommended system configuration:
 
 You can also run the training session on an AWS EC2 instance, such as `g4dn.xlarge`. Note that multi-GPU configurations may not work as expected.
 
+## 2. TAO Installation
+
+```bash
+# Create virtual python environment for TAO in the repo root
+python3 -m venv venv_tao
+# Activate virtual environment
+source venv_tao/bin/activate
+
+
+```
+
 
 ## 2. Data Preprocessing
+
+### 2.1 Download KITTI 3D Object Data
+
+Download KITTI 3d object detection annotation data from the [website](https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d)
+Download the options:
+- Left color images of object data set (12GB)
+- Velodyne point clouds (29B)
+- Camera calibration matrices of object data set (16 MB)
+- Training labels of object data set (5 MB)
+
+Extract the download data into below structure:
+```
+│── ImageSets
+│── training
+│   ├──calib & velodyne & label_2 & image_2
+│── testing
+│   ├──calib & velodyne & image_2
+```
