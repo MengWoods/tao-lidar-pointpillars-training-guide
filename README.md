@@ -54,17 +54,31 @@ Recommended system configuration:
 
 You can also run the training session on an AWS EC2 instance, such as `g4dn.xlarge`. Note that multi-GPU configurations may not work as expected.
 
-## 2. TAO Installation
+## 2. TAO Toolkit Installation
+
+Install TAO launcher PyPI:
 
 ```bash
 # Create virtual python environment for TAO in the repo root
 python3 -m venv venv_tao
 # Activate virtual environment
 source venv_tao/bin/activate
-
-
+# Install TAO launcher
+pip3 install --upgrade nvidia-tao
+# Check the version
+tao info --verbose
+# Export the variable to the used python version
+export VIRTUALENVWRAPPER_PYTHON=~/tao-lidar-pointpillars-training-guide/venv_tao/bin/python3.x
 ```
 
+Register account and sign in the Nvidia [NGC](https://catalog.ngc.nvidia.com/) page.
+Top-right corner click user name, Setup, Generate API Key, Generate Personal Key, Select NGC Catalog in the Key Permissions (double check), Generate Personal Key, copy your API Key and save it secretly.
+
+Login the docker registry:
+
+```bash
+docker login nvcr.io
+```
 
 ## 2. Data Preprocessing
 
