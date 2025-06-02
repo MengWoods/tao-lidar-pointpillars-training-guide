@@ -71,14 +71,26 @@ tao info --verbose
 export VIRTUALENVWRAPPER_PYTHON=~/tao-lidar-pointpillars-training-guide/venv_tao/bin/python3.x
 ```
 
-Register account and sign in the Nvidia [NGC](https://catalog.ngc.nvidia.com/) page.
-Top-right corner click user name, Setup, Generate API Key, Generate Personal Key, Select NGC Catalog in the Key Permissions (double check), Generate Personal Key, copy your API Key and save it secretly.
 
-Login the docker registry:
+Register an account and sign in at the NVIDIA [NGC](https://catalog.ngc.nvidia.com/) page.
 
-```bash
-docker login nvcr.io
-```
+- In the top-right corner, click your username → **Setup** → **Generate API Key**.
+- Click **Generate Personal Key** again, then copy your API key and save it securely.
+- Log in to the Docker registry:
+
+    ```bash
+    docker login nvcr.io
+    # Use the following when prompted:
+    # Username: $oauthtoken
+    # Password: <Your API Key>
+    # For the username, enter '$oauthtoken' exactly as shown.
+    # It is a special authentication placeholder for all users.
+
+    # Give docker root access
+    sudo usermod -a -G docker root
+    ```
+
+
 
 ## 2. Data Preprocessing
 
